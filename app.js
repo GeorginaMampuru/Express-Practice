@@ -36,7 +36,7 @@ app.get("/update-location", async (req, res) => {
             latitude: req.query?.lat,
         })
         let result = await location.save();
-        return {...resule._doc, _id: result._doc._id.toString()}
+        return {...result._doc, _id: result._doc._id.toString()}
     }catch(err){
     }
 })
