@@ -31,7 +31,12 @@ app.get("/update-location", (req, res) => {
     try {
         console.log('longitude: ' + req.query?.lng)
         console.log('latitude: ' + req.query?.lat)
-        // const location = await Location.findById()
+        const location = new Location({
+            longitude: req.query?.lng,
+            latitude: req.query?.lat,
+        })
+        let result = await location.save();
+        return {...resule._doc, _id: result._doc._id.toString()}
     }catch(err){
     }
 })
