@@ -27,7 +27,7 @@ app.get("/get-location", async (req, res) => {
     return result
 })
 
-app.get("/update-location", async (req, res) => {
+app.post("/update-location", async (req, res) => {
     try {
         console.log('longitude: ' + req.query?.lng)
         console.log('latitude: ' + req.query?.lat)
@@ -38,6 +38,7 @@ app.get("/update-location", async (req, res) => {
         let result = await location.save();
         return {...result._doc, _id: result._doc._id.toString()}
     }catch(err){
+        throw err
     }
 })
 
