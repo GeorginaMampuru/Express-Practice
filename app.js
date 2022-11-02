@@ -27,7 +27,7 @@ app.get("/get-location", async (req, res) => {
     return result
 })
 
-app.get("/update-location", (req, res) => {
+app.get("/update-location", async (req, res) => {
     try {
         console.log('longitude: ' + req.query?.lng)
         console.log('latitude: ' + req.query?.lat)
