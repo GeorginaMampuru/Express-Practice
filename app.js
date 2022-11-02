@@ -1,7 +1,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose");
-const Location = require("./location.model")
+const {Location} = require("./location.model")
 // QhKDcqZgvWC4zsJU
 
 const PORT = process.env.PORT || 5000;
@@ -34,8 +34,9 @@ app.post("/update-location", async (req, res) => {
         const location = new Location({
             longitude: req.query?.lng,
             latitude: req.query?.lat,
-        })
+        });
         let result = await location.save();
+        res.send("OK")
         return {...result._doc, _id: result._doc._id.toString()}
     }catch(err){
         throw err
