@@ -29,8 +29,8 @@ app.get("/get-location", async (req, res) => {
 
 app.get("/update-location", (req, res) => {
     try {
-        console.log('longitude: ' + req.query?.longitude)
-        console.log('latitude: ' + req.query?.latitude)
+        console.log('longitude: ' + req.query?.lng)
+        console.log('latitude: ' + req.query?.lat)
         // const location = await Location.findById()
     }catch(err){
     }
